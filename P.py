@@ -26,8 +26,10 @@ class Time:
 
     def __lt__(self,other):
         if self.hour < other.hour: return True
-        elif self.minute < other.minute: return True
-        return False
+        elif self.hour == other.hour:
+            if self.minute < other.minute: return True
+        else :
+            return False
 
     def __repr__(self)->str:
         strHour = str(self.hour)

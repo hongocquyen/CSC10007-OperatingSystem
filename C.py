@@ -21,13 +21,13 @@ def isAllow(timetables):
             return True, index
     return False, -1
     
-parentPassword, childPassword = getPassword('pw.txt')
+parentPassword, childPassword = getPassword('./file/pw.txt')
 
 print("Parent: ",parentPassword)
 print("Child: ",childPassword)
 
 
-timetables = P.readTimeTable("timetable.txt")
+timetables = P.readTimeTable("./file/timetable.txt")
 print(timetables[0].From)
 countWrong = 0
 
@@ -35,7 +35,7 @@ while True:
     cur = time.time()
     password = input('Nhap mat khau: ')
     done = time.time()
-    if done - cur > 5:
+    if done - cur > 15:
         break
     if password == parentPassword:
         wrongCount = 0
@@ -50,7 +50,7 @@ while True:
         if isAllow:
             print('Children is using')
             
-            waitTime = timetables[index].To - P.Time(getCurTime) 
+            waitTime = timetables[index].To - P.Time(getCurTime()) 
             print("Wait: ",waitTime)
             # time.sleep(waitTime.toSecond())
             print("Time out")
