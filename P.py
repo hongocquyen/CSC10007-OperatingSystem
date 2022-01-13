@@ -128,8 +128,7 @@ def readTimeTable(filename):
         timetables.append(timetable)
     return timetables
 
-
-
+# Dieu chinh thoi gian
 def Adjust (index):
     while(True):
         os.system("cls")
@@ -182,21 +181,41 @@ def Menu (timetables):
                 i += 1
             os.system("pause")
         elif choice == '2':
-            F = input("From: ")
-            T = input("To: ")
-            index = findTimeTable(timetables, Time(F), Time(T))
-            if index == None:
-                print("Khong tim thay timetable phu hop")
-            else:
-                res = Adjust(index)
-                print(res)
-            os.system("pause")
+            #Kiem tra active
+            fin = open("./file/flagActive.txt","r")
+            data = fin.read()
+            if data == "True":
+                print("Chuc nang dang duoc su dung o mot thiet bi khac")
+                fin.close()
+                break
+            elif data == "False":
+                #Dat lai trang thai: isActive = True
+                fout = open("./file/flagActive.txt","w")
+                fout.write("True")
+                fout.close()
+
+                print("Nhap khung gio: ")
+                F = input("From: ")
+                T = input("To: ")
+                index = findTimeTable(timetables, Time(F), Time(T))
+                if index == None:
+                    print("Khong tim thay timetable phu hop")
+                else:
+                    res = Adjust(index)
+                    print(res)
+                os.system("pause")
+                
+                #Dat lai trang thai: isActive = False
+                fout = open("./file/flagActive.txt","w")
+                fout.write("False")
+                fout.close()
             
         elif choice == '0':
             break
         else:
             print("Nhap lai lua chon!!")
             os.system("pause")
+
 def writeTimeTable(timetables, filename):
     if len(timetables) == 0: 
         return None

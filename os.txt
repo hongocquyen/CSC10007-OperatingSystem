@@ -1,0 +1,22 @@
+*C0: Lấy mật khẩu (từ bàn phím)
+
+*C1: Nếu chuỗi nhập là mật khẩu của phụ huynh: chương trình đợi đến 60 phút sau thì mới quay lại hỏi lại mật 
+khẩu (thực hiện lại bước C0) // lúc này là phụ huynh sử dụng máy chứ không phải trẻ!
+
+*C2: Nếu là mật khẩu của trẻ:
+ +C2.1: Kiểm tra xem thời điểm hiện tại có nằm trong khung thời gian trẻ chưa được dùng máy hay không:
+ -C2.1.1: Nếu đang trong khoảng thời gian trẻ chưa được dùng máy: Thông báo tới khi nào mới được dùng 
+(hiển thị ra màn hình và /hoặc nói ra loa), sau đó thực hiện song song 2 việc: (1): kiểm tra xem đã đủ 15 giây
+chưa kể từ lúc thông báo xong & nếu đã đủ thì chương trình tự tắt máy (shutdown hệ điều hành -không cho 
+người dùng can thiệp) – (2) thực hiện lại từ đầu việc C0 & C1 (tức nếu người dùng kịp nhập đúng mật khẩu phụ
+huynh thì không tắt máy mà thực hiện C1 - đợi đến 60 phút sau…)
+ -C2.1.2: Ngược lại (đang trong khoảng thời gian trẻ được dùng máy): 
+.C2.1.2.1: Đọc thông tin về khung giờ được dùng (a) và Thông báo 
+còn bao nhiêu phút nữa máy sẽ tắt & đến mấy giờ thì trẻ có thể bật lên lại (b), sau đó chạy ở chế độ giám sát thực 
+hiện cùng lúc các việc: (1) Sau mỗi phút lại lưu lại màn hình và /hoặc các phím đã gõ, (2) thực hiện (a) và thấy 
+có thay đổi (do cha /mẹ chạy tiến trình P và điều chỉnh) thì cập nhật thông tin và thực hiện (b), (3) kiểm tra thấy 
+còn 1 phút đến thời điểm tắt máy thì thực hiện (b) và còn 0 phút thì tắt máy. 
+
+*C3: Nếu không phải của trẻ lẫn phụ huynh - Nhập sai mật khẩu
+.C3.1:Thực hiện lại việc hỏi và kiểm tra mật khẩu (thực hiện lại C0) cho đến lần nhập sai mật khẩu thứ 3 thì đặt
+ thời gian không được dùng máy là 10 phút kể từ thời điểm hiện tại rồi tắt máy.
