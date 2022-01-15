@@ -243,18 +243,9 @@ def main():
 
     Menu(timetables)
 
-    writeTimeTable(timetables,'./file/timetable1.txt')
+    writeTimeTable(timetables,'./file/timetable.txt')
 
 if __name__ == '__main__':
     main()
-
-
-
-#print file no ra
-# dieu chinh khung gio ( 1 dieu chinh/ from, to)
-#1 dieu chinh (from, hien tai, lay moi ...  to), duration(nhap khung gio..from, to ??  ) ... 
-#xem print ra
-# dieu chinh.... nhap dieu chinh tu gio mo toi gio mo , kiểm tra trong timetable , nếu trùng thi` lấy att ra
-# hỏi điều chỉnh thông số chi... 
 
 
