@@ -171,6 +171,7 @@ def Menu (timetables):
         print("0. Thoat")
         print("1. Xem Cac Khung gio")
         print("2. Dieu chinh khung gio")
+        print("3. Xem lai lich su su dung may cua tre trong ngay")
         
         choice = input("Nhap lua chon: ")
         if choice == '1':
@@ -210,6 +211,11 @@ def Menu (timetables):
                 fout.write("False")
                 fout.close()
             
+        elif choice == '3':
+            fin = open("./file/log.txt")
+            data = fin.read()
+            print(data)
+            os.system("pause")
         elif choice == '0':
             break
         else:

